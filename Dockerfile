@@ -1,5 +1,6 @@
 FROM richarvey/nginx-php-fpm:3.1.6
-
+RUN apk add --no-cache postgresql-dev && \
+    docker-php-ext-install pdo_pgsql
 COPY . .
 
 # Image config
