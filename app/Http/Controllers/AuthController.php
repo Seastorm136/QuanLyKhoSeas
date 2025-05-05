@@ -19,11 +19,11 @@ class AuthController extends Controller
             'mat_khau' => 'required|string|min:6|max:255',
         ]);
         $credentials = [
-            'staff_Name' => $request->input('ten_dn'),
+            'staff_name' => $request->input('ten_dn'),
             'password' => $request->input('mat_khau'),
         ];
         $adminCredentials = [
-            'admin_Name' => $request->input('ten_dn'),
+            'admin_name' => $request->input('ten_dn'),
             'password' => $request->input('mat_khau'),
         ];
         $remember = $request->has('remember');
