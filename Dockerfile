@@ -1,5 +1,6 @@
 FROM richarvey/nginx-php-fpm:3.1.6
-
+RUN apk add --no-cache postgresql-client
+RUN sed -i 's/listen = \/var\/run\/php-fpm.sock/listen = 127.0.0.1:9000/' /etc/php/php-fpm.d/www.conf
 COPY . .
 
 # Image config
@@ -17,4 +18,6 @@ ENV LOG_CHANNEL stderr
 # Allow composer to run as root
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
+COPY start-custom.sh /start-custom.sh
+RUN chmod +x /start-custom.sh
 CMD ["/start.sh"]
