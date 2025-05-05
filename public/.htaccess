@@ -8,8 +8,8 @@
     RewriteRule ^\.well-known/ - [L,NC]
 
     # Chuyển hướng HTTP sang HTTPS
-    #RewriteCond %{HTTPS} off
-    #RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
