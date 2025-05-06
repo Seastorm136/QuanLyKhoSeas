@@ -4,6 +4,7 @@ RUN apk add --no-cache postgresql-dev && \
 
 COPY . /var/www/html
 COPY conf/nginx/nginx-site.conf /etc/nginx/conf.d/default.conf
+COPY php.ini /etc/php/conf.d/custom.ini
 
 # Image config
 ENV SKIP_COMPOSER 1
