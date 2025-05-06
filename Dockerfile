@@ -1,7 +1,9 @@
 FROM richarvey/nginx-php-fpm:3.1.6
 RUN apk add --no-cache postgresql-dev && \
     docker-php-ext-install pdo_pgsql
-COPY . .
+
+COPY . /var/www/html
+COPY conf/nginx/nginx-site.conf /etc/nginx/conf.d/default.conf
 
 # Image config
 ENV SKIP_COMPOSER 1
